@@ -38,4 +38,6 @@ button{
     aspect-ratio: 1/1;
     text-align: center;
     background-color: rgba(85, 85, 85, 0.296);
+    width: fit-content;
+    height: fit-content;
 }

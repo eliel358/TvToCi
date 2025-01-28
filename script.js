@@ -47,13 +47,14 @@ function createBinaryTable(numVariables) {
 calc = () =>{
     tablerows = document.getElementById('table').childNodes
     // console.log(tablerows)
-    for (let i = 0; i < tablerows.length-1; i++) {
+    form = []
+    for (let i = 1; i < tablerows.length; i++) {
         // console.log(i)
         numerodetr = tablerows[i].childNodes.length
         // console.log((tablerows[i].childNodes.length))//cada tr
         // console.log('----')//cada 3
         linha = []
-        for (k =0;k< numerodetr-1;k++) {
+        for (k =0;k< numerodetr;k++) {
             //k = col;i = row
             // console.log(tablerows[i].childNodes[k].innerHTML)
             cell = tablerows[i].childNodes[k].innerHTML
@@ -64,12 +65,38 @@ calc = () =>{
             }
             linha.push(cell)
         }
-        console.log(document.getElementById('checkbox'+(i)).checked)
-        // console.log(linha)
+        console.log(linha)
+        console.log(i)
+        console.log(document.getElementById('checkbox'+(i-1)).checked)
+        if((document.getElementById('checkbox'+(i-1)).checked)){
+            str = ''
+            for (v =0;v< linha.length -1;v++) {
+                if(v == 0){
+                    str = '( '+str+linha[v]
+                }else{
+                    str = str+' * '+linha[v]+" ) "
+
+                }
+            }
+            form.push(str)
+        }
+        str = ''
+        for(d in form){
+            if(d == 0){
+                str = str + form[d]
+            }else{
+                str = str +" + "+ form[d]
+
+            }
+
+        }
+        console.log(form)
+        console.log(str)
+        document.getElementById('resposta').innerHTML = str
     }
 }
 
-const numVariables = 2; 
+const numVariables = 0; 
 
 document.getElementById('increasevarnumber').addEventListener('click',()=>{
 
