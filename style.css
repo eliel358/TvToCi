@@ -9,6 +9,7 @@ body{
     justify-content: center;
     gap: 2em;
     padding-top: 5em;
+    flex-wrap: wrap;
 }
 .row{
     display: flex;
@@ -21,9 +22,17 @@ body{
 table,tr,td{
     border: 1px solid black;
     padding: 2em;
+    width: 1em;
+    
+}
+td{
+    /* display: flex; */
+    /* align-items: center;
+    justify-content: center; */
+    
 }
 button{
-    width: 1em;
+    max-width: 1em;
     aspect-ratio: 1/1;
     text-align: center;
     background-color: rgba(85, 85, 85, 0.296);

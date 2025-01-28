@@ -33,7 +33,7 @@ function createBinaryTable(numVariables) {
         });
 
         const sCell = document.createElement("td");
-        sCell.innerHTML = '<input type="text" style="width: 1em;">'; 
+        sCell.innerHTML = '<input type="checkbox" id="checkbox'+i+'" style="width: 2em;" >'; 
         
         row.appendChild(sCell);
 
@@ -43,7 +43,7 @@ function createBinaryTable(numVariables) {
     document.getElementById("tabela").appendChild(table);
 }
 
-const numVariables = 2; 
+const numVariables = 3; 
 
 document.getElementById('increasevarnumber').addEventListener('click',()=>{
 
@@ -55,3 +55,4 @@ document.getElementById('decreasevarnumber').addEventListener('click',()=>{
     document.getElementById('inportnumber').innerHTML = parseInt(document.getElementById('inportnumber').innerHTML)-1
     createBinaryTable(parseInt(document.getElementById('inportnumber').innerHTML));
 })
+createBinaryTable(numVariables);
