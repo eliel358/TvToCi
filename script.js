@@ -5,6 +5,7 @@ function createBinaryTable(numVariables) {
     table.style.borderCollapse = "collapse";
     table.style.margin = "20px auto";
     table.style.width = "50%";
+    table.id = 'table'
 
     const headerRow = document.createElement("tr");
     const headers = Array.from({ length: numVariables }, (_, i) => String.fromCharCode(65 + i)); 
@@ -43,7 +44,32 @@ function createBinaryTable(numVariables) {
     document.getElementById("tabela").appendChild(table);
 }
 
-const numVariables = 3; 
+calc = () =>{
+    tablerows = document.getElementById('table').childNodes
+    // console.log(tablerows)
+    for (let i = 0; i < tablerows.length-1; i++) {
+        // console.log(i)
+        numerodetr = tablerows[i].childNodes.length
+        // console.log((tablerows[i].childNodes.length))//cada tr
+        // console.log('----')//cada 3
+        linha = []
+        for (k =0;k< numerodetr-1;k++) {
+            //k = col;i = row
+            // console.log(tablerows[i].childNodes[k].innerHTML)
+            cell = tablerows[i].childNodes[k].innerHTML
+            if(cell == 0){
+                cell = '|'+tablerows[0].childNodes[k].innerHTML
+            }else if(cell == 1){
+                cell = tablerows[0].childNodes[k].innerHTML
+            }
+            linha.push(cell)
+        }
+        console.log(document.getElementById('checkbox'+(i)).checked)
+        // console.log(linha)
+    }
+}
+
+const numVariables = 2; 
 
 document.getElementById('increasevarnumber').addEventListener('click',()=>{
 
@@ -56,3 +82,6 @@ document.getElementById('decreasevarnumber').addEventListener('click',()=>{
     createBinaryTable(parseInt(document.getElementById('inportnumber').innerHTML));
 })
 createBinaryTable(numVariables);
+document.getElementById('calcular').addEventListener('click',()=>{
+    calc()
+})

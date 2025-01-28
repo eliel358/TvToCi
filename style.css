@@ -31,8 +31,10 @@ td{
     justify-content: center; */
     
 }
+input{
+    border: 5px solid black;
+}
 button{
-    max-width: 1em;
     aspect-ratio: 1/1;
     text-align: center;
     background-color: rgba(85, 85, 85, 0.296);
