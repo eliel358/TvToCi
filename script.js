@@ -74,8 +74,7 @@ calc = () =>{
                 if(v == 0){
                     str = '( '+str+linha[v]
                 }else{
-                    str = str+' * '+linha[v]+" ) "
-
+                    str = str+' * '+linha[v]+"  "   
                 }
             }
             form.push(str)
@@ -83,9 +82,9 @@ calc = () =>{
         str = ''
         for(d in form){
             if(d == 0){
-                str = str + form[d]
+                str = str + form[d] + " ) + "
             }else{
-                str = str +" + "+ form[d]
+                str = str +" "+ form[d] + ") +"
 
             }
 
@@ -104,9 +103,11 @@ document.getElementById('increasevarnumber').addEventListener('click',()=>{
     createBinaryTable(parseInt(document.getElementById('inportnumber').innerHTML));
 })
 document.getElementById('decreasevarnumber').addEventListener('click',()=>{
+    if(!(parseInt(document.getElementById('inportnumber').innerHTML)) == 0){
 
-    document.getElementById('inportnumber').innerHTML = parseInt(document.getElementById('inportnumber').innerHTML)-1
-    createBinaryTable(parseInt(document.getElementById('inportnumber').innerHTML));
+        document.getElementById('inportnumber').innerHTML = parseInt(document.getElementById('inportnumber').innerHTML)-1
+        createBinaryTable(parseInt(document.getElementById('inportnumber').innerHTML));
+    }
 })
 createBinaryTable(numVariables);
 document.getElementById('calcular').addEventListener('click',()=>{
